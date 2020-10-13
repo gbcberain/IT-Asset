@@ -1,0 +1,27 @@
+<mvc:View controllerName="zgazets.zit.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormDisplay354" editable="false" title="Asset Management Options" layout="ResponsiveGridLayout" labelSpanXL="3"
+							labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+							columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+									<Label text=""/>
+									<Button text="Issuance of IT Assets" press="onUpdate" icon="sap-icon://action">
+									</Button>
+									<Label text=""/>
+									<Button text="Transfer IT Asset" press="onTransfer" icon="sap-icon://action"></Button>
+									<Label text=""/>
+									<Button text="Return IT Asset" press="onReturn" icon="sap-icon://action"></Button>
+								
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,72 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="zgazets.zit.controller.transfer"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Return IT Asset">
+				<VBox class="sapUiSmallMargin">
+					<f:SimpleForm id="idMain" editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Employee ID" required="true"/>
+							<Input id="idEmpid" value="" submit="onSubmit" placeholder="Enter Employee ID" showSuggestion="true" showValueHelp="true"
+								valueHelpRequest="handleValueHelp" suggestionItems="{/employeeSet}">
+								<suggestionItems>
+									<core:Item text="{empId}"/>
+								</suggestionItems>
+							</Input>
+							<Label text="Employee Name"/>
+							<Text id="idEmpName" text=""/>
+						</f:content>
+					</f:SimpleForm>
+				</VBox>
+				<Table id="idAssetTable" mode="MultiSelect" inset="true" items="{ path: '/results/' }">
+					<headerToolbar>
+						<Toolbar>
+							<content>
+								<Title text="Products" level="H2"/>
+							</content>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column width="12em">
+							<Text text="Asset Code"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Description"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true">
+							<Text text="Assigned By"/>
+						</Column>
+						<Column minScreenWidth="Desktop" demandPopin="true">
+							<Text text="Assigned Date"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Return Date"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{assetId}"/>
+								<Text text="{addetDescr}"/>
+								<Text text="{assignedby}"/>
+								<Text text="{assigneddate}"/>
+								<DatePicker id="idDate" value="{transferdate}" valueFormat="yyyy-MM-dd" displayFormat="long" displayFormatType="Gregorian"
+									change="handleChangeLocal"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				<footer>
+					<Bar>
+						<contentRight>
+							<ToolbarSpacer/>
+							<Button text="Submit" type="Accept" press="onSave"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

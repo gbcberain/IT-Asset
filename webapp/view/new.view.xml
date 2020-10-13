@@ -1,0 +1,71 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="zgazets.zit.controller.new"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:c="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="Issuance of IT Assets">
+				<VBox class="sapUiSmallMargin">
+					<f:SimpleForm id="idNew" editable="true" layout="ResponsiveGridLayout" title="Employee Details"  labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Employee ID" required="true"/>
+							<Input id="idEmpid" value="" submit="onSubmit" placeholder="Enter Employee ID" showSuggestion="true" showValueHelp="true"
+								valueHelpRequest="handleValueHelp" >
+								<suggestionItems>
+									<core:Item text="{empId}"/>
+								</suggestionItems>
+							</Input>
+							<Label text="Employee Name"/>
+							<Text id="idEmpName" text="{/empName}"/>
+							<Label text="Employee Position"/>
+							<Text id="idEmpPos" text="{/empPosition}"/>
+							<Label text="Employee Department"/>
+							<Text id="idEmpDept" text="{/empDept}"/>
+							<Label text="Company Code"/>
+							<Text id="idCompCode" text="{/compCode}"/>
+							<Label text="Company Name"/>
+							<Text id="idCompDescr" text="{/compDescr}"/>
+						</f:content>
+					</f:SimpleForm>
+				</VBox>
+					<VBox class="sapUiSmallMargin">
+					<f:SimpleForm id="idNewAsset" editable="true" layout="ResponsiveGridLayout" title="Asset Details"  labelSpanXL="3" labelSpanL="3"
+						labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+						columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Asset Type" required="true"/>
+							<ComboBox id="CB" items="{ path: '/assetTypeSet', sorter: { path: 'description' } }" selectionChange="onChangeLocal">
+									<c:ListItem key="{code}" text="{description}"/>
+							</ComboBox>
+							<Label text="Asset ID" required="true"/>
+							<Input id="idAsset"  value="" submit="onSubmitAsset" placeholder="Enter Asset Code"></Input>
+							<Label text="Company Code"/>
+							<Text id="idCompany" text=""/>
+							<Label text="Asset Description"/>
+							<Text id="idDescription" text=""/>
+								<Label text="Company Code"/>
+							<Text id="idCompCodeAsset" text="{/compDescr}"/>
+							<Label text="Company"/>
+							<Text id="idCompDescrAsset" text="{/compDescr}"/>
+							<Label text="Assignment Date From" required="true"/>
+							<DatePicker id="idDate" valueFormat="yyyy-MM-dd" displayFormat="long" displayFormatType="Gregorian" change="handleChangeLocal" />
+							
+						</f:content>
+					</f:SimpleForm>
+				</VBox>
+				<footer>
+					<Bar>
+						<contentRight>
+							<ToolbarSpacer/>
+							<!--<Button press="onPrint" text="Print" icon="sap-icon://print" type="Emphasized"/>-->
+							<Button text="Submit" type="Accept" press="onSave"/>
+							<Button text="Clear" type="Reject" press="onReject"/>
+						</contentRight>
+						<!-- sap.ui.core.Control -->
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
